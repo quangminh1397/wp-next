@@ -1,0 +1,17 @@
+
+.inner {
+    width: 100%;
+    max-width: calc(1200px + 6vw);
+    padding: 0 3vw;
+    margin: 0 auto;
+}
+
+.list-product {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    .items {
+        width: calc((100% - 60px) / 3);
+        border: 1px solid #ccc;
+    }
+}
