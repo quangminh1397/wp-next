@@ -1,9 +1,9 @@
-import Home from "./components/Home";
+import ClientComponent from "./components/ClientComponent";
+
+
 
 export default function App() {
   return (
-    <>
-      <Home />
-    </>
+    <ClientComponent/>
   );
 }
