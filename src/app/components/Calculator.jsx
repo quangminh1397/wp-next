@@ -8,12 +8,12 @@ const Calculator = () => {
     <div>
       <div>
         <button
-          onClick={() => dispatch(increment(Math.floor(Math.random() * 5) + 1))}
+          onClick={() => dispatch(increment(1))}
         >
           Increment
         </button>
         <button
-          onClick={() => dispatch(decrement(Math.floor(Math.random() * 5) + 1))}
+          onClick={() => dispatch(decrement(1))}
         >
           Decrement
         </button>
