@@ -1,15 +1,21 @@
-
 .inner {
     width: 100%;
     max-width: calc(1200px + 6vw);
     padding: 0 3vw;
     margin: 0 auto;
 }
+.page-ttl {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 45px;
+}
 
 .list-product {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
+
     .items {
         width: calc((100% - 60px) / 3);
         border: 1px solid #ccc;

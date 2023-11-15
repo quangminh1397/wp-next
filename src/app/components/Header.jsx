@@ -22,7 +22,7 @@ export default function Header() {
               />
             </Link>
           </div>
-          <nav className="cart">Cart</nav>
+          <Link href="/cart">Cart</Link>
         </div>
       </header>
     </>
