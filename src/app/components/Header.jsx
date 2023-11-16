@@ -8,8 +8,14 @@ export default function Header() {
       <header>
         <div className="inner">
           <nav className="primary-nav light">
-            <Link href="/products">Products</Link>
-            <Link href="/styles">Styles</Link>
+            <ul>
+              <li>
+                <Link href="/products">Products</Link>
+              </li>
+              <li>
+                <Link href="/about">About</Link>
+              </li>
+            </ul>
           </nav>
           <div className="logo">
             <Link href="/">
@@ -22,7 +28,9 @@ export default function Header() {
               />
             </Link>
           </div>
-          <Link href="/cart">Cart</Link>
+          <div className="shop-cart">
+            <Link href="/cart">Cart</Link>
+          </div>
         </div>
       </header>
     </>

@@ -1,8 +1,36 @@
 header {
+    height: 80px;
+    width: 100%;
+    background: #fff;
     border-bottom: 2px solid #ccc;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+
     .inner {
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+
+    .primary-nav {
+        ul {
+            display: flex;
+
+            li {
+                font-size: 20px;
+                font-weight: 600;
+
+                &:not(:last-child) {
+                    margin-right: 30px;
+                }
+            }
+        }
+    }
+
+    .shop-cart {
+        font-size: 20px;
+        font-weight: 600;
     }
 }

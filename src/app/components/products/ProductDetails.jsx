@@ -3,8 +3,9 @@ import React from "react";
 
 const ProductDetails = () => {
   return (
-    <div className="product-detail">
-        <div className="product-image">
+    <section className="product-detail box-sec">
+      <div className="inner">
+        <div className="box-img">
           <Image
             src={"/assets/images/product/lamp1-trans.png"}
             alt="I love lamp"
@@ -13,9 +14,9 @@ const ProductDetails = () => {
             priority
           />
         </div>
-        <div className="product-desc">
-          <h3 className="product-ttl">Little Grey</h3>
-          <div className="product-cont">
+        <div className="box-desc">
+          <h3 className="desc-ttl">Little Grey</h3>
+          <div className="desc-cont">
             <p className="price">$475</p>
             <div className="sec">
               <p>
@@ -24,15 +25,20 @@ const ProductDetails = () => {
                 presence, which works well in a contemporary environment.
               </p>
             </div>
-            <div className="btn-card">
+            <div className="cart-quantity">
+              <p className="hide-content">Product quantity.</p>
+              <p className="hide-content">
+                Change the quantity by using the buttons, or alter the input
+                directly.
+              </p>
               <button
-              // type="button"
-              // className="decrement number-button"
-              // onClick={() => {
-              //   updateQuantity(this.props.product.quantity - 1);
-              // }}
+                type="button"
+                //   className="decrement number-button"
+                //   onClick={() => {
+                //     cart_decrement(item.id, item.quantity);
+                //   }}
               >
-                {/* <span className="hide-content">Decrement quantity</span> */}
+                <span className="hide-content">Decrement quantity</span>
                 <span aria-hidden="true">-</span>
               </button>
               <input
@@ -41,20 +47,21 @@ const ProductDetails = () => {
                 type="number"
                 min="1"
                 max="10"
-                value=""
                 size="2"
-                //   onChange={event => {
-                //     updateQuantity(event.target.value);
+                //   defaultValue={item.quantity}
+                //   onBlur={event => {
+                //     cart_edit(item.id, event.target.value);
+                //     console.log(event.target.value);
                 //   }}
               />
               <button
-              // type="button"
-              // className="increment number-button"
-              // onClick={() => {
-              //   updateQuantity(this.props.product.quantity + 1);
-              // }}
+                type="button"
+                className="increment number-button"
+                //   onClick={() => {
+                //     cart_increment(item.id, item.quantity);
+                //   }}
               >
-                {/* <span className="hide-content">Increment quantity</span> */}
+                <span className="hide-content">Increment quantity</span>
                 <span aria-hidden="true">+</span>
               </button>
             </div>
@@ -73,7 +80,8 @@ const ProductDetails = () => {
             </div>
           </div>
         </div>
-    </div>
+      </div>
+    </section>
   );
 };
 

@@ -1,7 +1,12 @@
-import React from 'react'
+import React from "react";
 
 export default function About() {
   return (
-    <div> This is About</div>
-  )
+    <>
+      <div className="page-about">
+        <h2 className="page-ttl">Page About</h2>
+        <div className="inner">this is about page</div>
+      </div>
+    </>
+  );
 }

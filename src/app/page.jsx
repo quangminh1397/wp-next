@@ -1,12 +1,11 @@
 // import ClientComponent from "./components/ClientComponent";
-import Home from "./components/HomeComponent";
+import Home from "./components/home/HomeComponent";
 
 export default function App() {
   return (
     <>
       {/* <ClientComponent /> */}
       < Home />
-      this is text
     </>
   );
 }

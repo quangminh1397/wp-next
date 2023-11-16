@@ -1,22 +1,22 @@
 import React from "react";
-import ProdustItem from "./products/ProdustItem";
+import ProdustItem from "./ProdustItem";
 
 const TopPicks = () => {
   return (
-    <section className="toppick">
+    <section className="box-sec">
       <div className="inner">
-        <h2 className="c-title01">Top picks</h2>
+        <h3 className="c-title01">Top picks</h3>
         <ul className="list-products">
-          <li className="product-item">
+          <li className="item">
             <ProdustItem />
           </li>
-          <li className="product-item">
+          <li className="item">
             <ProdustItem />
           </li>
-          <li className="product-item">
+          <li className="item">
             <ProdustItem />
           </li>
-          <li className="product-item">
+          <li className="item">
             <ProdustItem />
           </li>
         </ul>

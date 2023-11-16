@@ -13,7 +13,7 @@ const Cart = () => {
             <p className="heading-price">Price</p>
           </div>
         </div>
-        <div className="card-product">
+        <div className="cart-product">
           <CartItems />
         </div>
       </div>
