@@ -8,16 +8,7 @@ const TopPicks = () => {
         <h3 className="c-title01">Top picks</h3>
         <ul className="list-products">
           <li className="item">
-            <ProdustItem />
-          </li>
-          <li className="item">
-            <ProdustItem />
-          </li>
-          <li className="item">
-            <ProdustItem />
-          </li>
-          <li className="item">
-            <ProdustItem />
+            product test
           </li>
         </ul>
       </div>

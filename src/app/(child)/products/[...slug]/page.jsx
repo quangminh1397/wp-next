@@ -8,7 +8,7 @@ export default function ProductSingle() {
       <div className="single-product">
         <h2 className="page-ttl">Page detail</h2>
         <ProductDetails />
-        <ProductsRelated />
+        {/* <ProductsRelated /> */}
       </div>
     </>
   );
