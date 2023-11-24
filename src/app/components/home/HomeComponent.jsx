@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <>
       <div className="wrap-content">
-        <ProductByCat/>
-        <TopPicks />
+        {/* <ProductByCat/>
+        <TopPicks /> */}
       </div>
     </>
   );
