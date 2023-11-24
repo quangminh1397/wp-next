@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
-import posts from './calculatorReducer';
+import { todoProducts } from './todoProducts';
 
-export default combineReducers({
-  posts
+const ShopApp = combineReducers({
+  _todoProduct: todoProducts,
 });
+export default ShopApp;
