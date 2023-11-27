@@ -18,7 +18,7 @@ const ProdustItem = (product) => {
           </div>
           <div className="card-cont">
             <h3 className="card-ttl">{product.name}</h3>
-            <p className="price">1000$</p>
+            <p className="price">{product.price}$</p>
           </div>
         </div>
       </Link>

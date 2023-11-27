@@ -1,23 +1,24 @@
 import Image from "next/image";
 import React from "react";
 
-const ProductDetails = () => {
+const ProductDetails = (product) => {
+  console.log(product.id);
   return (
     <section className="product-detail box-sec">
       <div className="inner">
         <div className="box-img">
           <Image
-            src={"/assets/images/product/lamp1-trans.png"}
-            alt="I love lamp"
+            src={product.images[0].src}
+            alt={product.name}
             width={500}
             height={500}
             priority
           />
         </div>
         <div className="box-desc">
-          <h3 className="desc-ttl">Little Grey</h3>
+          <h3 className="desc-ttl">{product.name}</h3>
           <div className="desc-cont">
-            <p className="price">$475</p>
+            <p className="price">${product.price}</p>
             <div className="sec">
               <p>
                 Abstract, sculptural, refined and edgy with a modern twist. Its
