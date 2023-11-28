@@ -1,84 +1,55 @@
+"use client";
+import {
+  DecreaseQuantity,
+  IncreaseQuantity,
+  DeleteCart,
+} from "@/app/redux/action/types";
 import Image from "next/image";
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+const CartItems = ({ index, cartItem }) => {
+  const dispatch = useDispatch();
 
-const CartItems = () => {
   return (
     <div className="cart-items">
       <div className="product">
         <div className="product-img">
           <Image
-            src={"/assets/images/product/lamp1-trans.png"}
-            alt="I love lamp"
+            src={cartItem.images[0].src}
+            alt={cartItem.name}
             width={140}
             height={140}
             priority
           />
         </div>
-        <h3 className="cart-title">product 01</h3>
+        <h3 className="cart-title">{cartItem.name}</h3>
       </div>
       <div className="detail">
         <div className="cart-quantity">
-          <p className="hide-content">Product quantity.</p>
-          <p className="hide-content">
-            Change the quantity by using the buttons, or alter the input
-            directly.
-          </p>
-          <button
-            type="button"
-            //   className="decrement number-button"
-            //   onClick={() => {
-            //     cart_decrement(item.id, item.quantity);
-            //   }}
+          <span
+            className="sub"
+            onClick={() => dispatch(DecreaseQuantity(index))}
           >
-            <span className="hide-content">Decrement quantity</span>
-            <span aria-hidden="true">-</span>
-          </button>
-          <input
-            className="quantity"
-            name="number"
-            type="number"
-            min="1"
-            max="10"
-            size="2"
-            //   defaultValue={item.quantity}
-            //   onBlur={event => {
-            //     cart_edit(item.id, event.target.value);
-            //     console.log(event.target.value);
-            //   }}
-          />
-          <button
-            type="button"
-            className="increment number-button"
-            //   onClick={() => {
-            //     cart_increment(item.id, item.quantity);
-            //   }}
+            -
+          </span>
+          <span className="txt">{cartItem.quantity}</span>
+          <span
+            className="plus"
+            onClick={() => dispatch(IncreaseQuantity(index))}
           >
-            <span className="hide-content">Increment quantity</span>
-            <span aria-hidden="true">+</span>
-          </button>
+            +
+          </span>
         </div>
         <div className="cart-price">
           <p className="price">
-            <span>
-              <span className="hide-content">Price per item </span>$
-              <span className="product-price">
-                {/* {item.unit_price.amount / 100} */}
-              </span>
-              <span aria-hidden="true"> / </span>
-            </span>
-            <span className="hide-content">Product subtotal </span>$
-            <span className="total-product-price">
-              {/* {(item.unit_price.amount / 100) * item.quantity} */}
-            </span>
+            {(cartItem.quantity * cartItem.price).toLocaleString("en-US")} $
           </p>
         </div>
         <div className="cart-delete">
           <button
             className="remove"
             type="button"
-            //   onClick={() => {
-            //     cart_edit(item.id, 0);
-            //   }}
+            onClick={() => dispatch(DeleteCart(index))}
           >
             <span className="hide-content">Delete item</span>
             <svg

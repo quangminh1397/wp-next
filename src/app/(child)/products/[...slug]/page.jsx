@@ -14,7 +14,6 @@ export default function ProductSingle({ params }) {
   } = useSWR(`/api/products/${params.slug}`, fetcher);
   if (error) return <div>Failed to load</div>;
   if (isLoading) return <div>Loading...</div>;
-  console.log('data', product)
 
   return (
     <>

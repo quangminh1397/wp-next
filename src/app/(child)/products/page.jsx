@@ -8,12 +8,7 @@ export default function Product() {
   if (error) return <div>Failed to load</div>;
   if (isLoading) return <div>Loading...</div>;
   if (!data) return null;
-  // if(!data){
-  //   console.log('test')
-  // }
-  // else {
-  //   console.log('dataa',data.data[1])
-  // }
+
 
   return (
     <>

@@ -22,8 +22,8 @@ export const todoProducts = (state = initProduct, action) => {
         let cart = {
           id: action.payload.id,
           quantity: 1,
-          name: action.payload.title,
-          image: action.payload.thumbnail,
+          name: action.payload.name,
+          images: action.payload.images,
           price: action.payload.price,
         };
         state.Carts.push(cart);
@@ -39,8 +39,8 @@ export const todoProducts = (state = initProduct, action) => {
           let _cart = {
             id: action.payload.id,
             quantity: 1,
-            name: action.payload.title,
-            image: action.payload.thumbnail,
+            name: action.payload.name,
+            images: action.payload.images,
             price: action.payload.price,
           };
           state.Carts.push(_cart);

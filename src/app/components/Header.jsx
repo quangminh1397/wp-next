@@ -1,8 +1,11 @@
+"use client";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Header() {
+  const numberCart = useSelector((state) => state._todoProduct.numberCart);
   return (
     <>
       <header>
@@ -29,7 +32,9 @@ export default function Header() {
             </Link>
           </div>
           <div className="shop-cart">
-            <Link href="/cart">Cart</Link>
+            <Link href="/cart">
+              Cart: <span>{numberCart}</span>
+            </Link>
           </div>
         </div>
       </header>
