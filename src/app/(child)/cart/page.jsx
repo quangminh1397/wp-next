@@ -2,6 +2,7 @@
 import React from "react";
 import CartItems from "@/app/components/cart/CartItems";
 import { useSelector, useDispatch } from "react-redux";
+import Link from "next/link";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -19,22 +20,35 @@ const Cart = () => {
     <div className="page-cart">
       <div className="inner">
         <h2 className="page-ttl">SHOPPING CART</h2>
-        <div className="cart-heading">
-          <p className="heading-product">Product</p>
-          <div className="cart-heading-gr">
-            <p className="heading-quantity">Quantity</p>
-            <p className="heading-price">Price</p>
+        {ListCart.length > 0 ? (
+          <React.Fragment>
+            <div className="cart-heading">
+              <p className="heading-product">Product</p>
+              <div className="cart-heading-gr">
+                <p className="heading-quantity">Quantity</p>
+                <p className="heading-price">Price</p>
+              </div>
+            </div>
+            <div className="cart-product">
+              {ListCart &&
+                ListCart.map((cart, index) => {
+                  return (
+                    <CartItems index={index} key={index} cartItem={cart} />
+                  );
+                })}
+            </div>
+            <div className="cart-total">
+              <p>Total : {Number(TotalCart).toLocaleString("en-US")} $</p>
+            </div>
+            <div className="btn-primary">
+              <Link href="/checkout">Checkout</Link>
+            </div>
+          </React.Fragment>
+        ) : (
+          <div className="btn-primary">
+            <Link href="/products">Shopping</Link>
           </div>
-        </div>
-        <div className="cart-product">
-          {ListCart &&
-            ListCart.map((cart, index) => {
-              return <CartItems index={index} key={index} cartItem={cart}/>;
-            })}
-        </div>
-        <div className="cart-total">
-          <p>Total : {Number(TotalCart).toLocaleString('en-US')} $</p>
-        </div>
+        )}
       </div>
     </div>
   );
