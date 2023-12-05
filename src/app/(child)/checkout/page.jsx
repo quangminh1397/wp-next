@@ -3,7 +3,7 @@ import React from "react";
 import { Field, reduxForm } from "redux-form";
 import { useSelector, useDispatch } from "react-redux";
 import Image from "next/image";
-import Axios from "axios";
+import axios from "axios";
 // import { productsApi } from "@/app/api/productsApi";
 
 const Checkout = () => {
@@ -18,12 +18,13 @@ const Checkout = () => {
 
   const handleOrderSubmit = async () => {
     try {
-      const result = await Axios.post(
+      const result = await axios.post(
         "http://demo01-woo.local.vn/wp-json/wc/v3/orders",
         ListCart,
         {
           headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Credentials": "true",
           },
           auth: {
             username: "ck_56e0860e9f6be3a37b027a2236ff11b6ad43df4d",
@@ -32,9 +33,12 @@ const Checkout = () => {
         }
       );
 
-      console.log("Order created:", result.data);
+      console.log("Đơn hàng đã được tạo:", result.data);
     } catch (error) {
-      console.error("Error creating order:", error);
+      console.error(
+        "Lỗi khi tạo đơn hàng:",
+        error.response ? error.response.data : error.message
+      );
     }
   };
 
@@ -78,26 +82,24 @@ const Checkout = () => {
                 {ListCart &&
                   ListCart.map((cart, index) => {
                     return (
-                      <>
-                        <div key={index} className="product">
-                          <div className="product-image">
-                            <Image
-                              src={cart.images[0].src}
-                              alt={cart.name}
-                              width={140}
-                              height={140}
-                              priority
-                            />
-                          </div>
-                          <div className="product-detail">
-                            <h3>{cart.name}</h3>
-                            <div className="sec">
-                              <p className="txt">{cart.quantity}</p>
-                              <p className="price">{cart.price}</p>
-                            </div>
+                      <div key={index} className="product">
+                        <div className="product-image">
+                          <Image
+                            src={cart.images[0].src}
+                            alt={cart.name}
+                            width={140}
+                            height={140}
+                            priority
+                          />
+                        </div>
+                        <div className="product-detail">
+                          <h3>{cart.name}</h3>
+                          <div className="sec">
+                            <p className="txt">{cart.quantity}</p>
+                            <p className="price">{cart.price}</p>
                           </div>
                         </div>
-                      </>
+                      </div>
                     );
                   })}
                 <div className="total">
