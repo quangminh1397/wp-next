@@ -5,10 +5,13 @@ import {
   INCREASE_QUANTITY,
   DELETE_CART,
 } from "../action/types";
-
+import Cookies from "js-cookie";
 const initProduct = {
   numberCart: 0,
   Carts: [],
+  cart: Cookies.get("cart")
+    ? JSON.parse(Cookies.get("cart"))
+    : { numberCart: [], Carts: {} },
 };
 
 export const todoProducts = (state = initProduct, action) => {
@@ -46,6 +49,7 @@ export const todoProducts = (state = initProduct, action) => {
           state.Carts.push(_cart);
         }
       }
+      
       return {
         ...state,
         numberCart: state.numberCart + 1,
@@ -69,7 +73,6 @@ export const todoProducts = (state = initProduct, action) => {
       };
     case DELETE_CART:
       let quantity_ = state.Carts[action.payload].quantity;
-      console.log(quantity_);
       return {
         ...state,
         numberCart: state.numberCart - quantity_,
