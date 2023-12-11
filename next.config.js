@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
-require('dotenv').config();
+require("dotenv").config();
 const nextConfig = {
-    images: {
-        domains: ['demo01-woo.local.vn'],
-    },
-}
+  images: {
+    domains: ["demo01-woo.local.vn"],
+  }
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
