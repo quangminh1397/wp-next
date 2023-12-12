@@ -15,16 +15,132 @@ const Checkout = () => {
     TotalCart += items.Carts[item].quantity * items.Carts[item].price;
     ListCart.push(items.Carts[item]);
   });
-  const orderData = {};
-  const handleOrderSubmit = async () => {
-    const add = await fetch('/api/orders', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
+  const orderData = {
+    id: 78,
+    parent_id: 0,
+    status: "pending",
+    currency: "VND",
+    version: "7.7.2",
+    prices_include_tax: false,
+    date_created: "2023-12-12T03:43:18",
+    date_modified: "2023-12-12T03:43:59",
+    discount_total: "0",
+    discount_tax: "0",
+    shipping_total: "0",
+    shipping_tax: "0",
+    cart_tax: "0",
+    total: "80000",
+    total_tax: "0",
+    customer_id: 0,
+    order_key: "wc_order_HC3VGdEvcTiPw",
+    billing: {
+      first_name: "",
+      last_name: "",
+      company: "",
+      address_1: "",
+      address_2: "",
+      city: "",
+      state: "",
+      postcode: "",
+      country: "",
+      email: "",
+      phone: "",
+    },
+    shipping: {
+      first_name: "",
+      last_name: "",
+      company: "",
+      address_1: "",
+      address_2: "",
+      city: "",
+      state: "",
+      postcode: "",
+      country: "",
+      phone: "",
+    },
+    payment_method: "",
+    payment_method_title: "",
+    transaction_id: "",
+    customer_ip_address: "",
+    customer_user_agent: "",
+    created_via: "admin",
+    customer_note: "",
+    date_completed: null,
+    date_paid: null,
+    cart_hash: "",
+    number: "78",
+    meta_data: [],
+    line_items: [
+      {
+        id: 1,
+        name: "product01",
+        product_id: 18,
+        variation_id: 0,
+        quantity: 1,
+        tax_class: "",
+        subtotal: "80000",
+        subtotal_tax: "0",
+        total: "80000",
+        total_tax: "0",
+        taxes: [],
+        meta_data: [],
+        sku: "",
+        price: 80000,
+        image: {
+          id: "19",
+          src: "http://demo01-woo.local.vn/wp-content/uploads/2023/06/bee.png",
+        },
+        parent_name: null,
       },
-      body: JSON.stringify(orderData)
-    });
-    
+    ],
+    tax_lines: [],
+    shipping_lines: [],
+    fee_lines: [],
+    coupon_lines: [],
+    refunds: [],
+    payment_url:
+      "http://demo01-woo.local.vn/checkout/order-pay/78/?pay_for_order=true&key=wc_order_HC3VGdEvcTiPw",
+    is_editable: true,
+    needs_payment: true,
+    needs_processing: true,
+    date_created_gmt: "2023-12-12T03:43:18",
+    date_modified_gmt: "2023-12-12T03:43:59",
+    date_completed_gmt: null,
+    date_paid_gmt: null,
+    currency_symbol: "₫",
+    _links: {
+      self: [
+        {
+          href: "http://demo01-woo.local.vn/wp-json/wc/v3/orders/78",
+        },
+      ],
+      collection: [
+        {
+          href: "http://demo01-woo.local.vn/wp-json/wc/v3/orders",
+        },
+      ],
+    },
+  };
+  const handleOrderSubmit = async () => {
+    try {
+      const response = await fetch("/api/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ orderData }),
+      });
+
+      const data = await response.json();
+      console.log("check dataa:", response);
+      if (data.success) {
+        console.log("Order created:", data.order);
+      } else {
+        console.error("Error placing order01:", data.error);
+      }
+    } catch (error) {
+      console.error("Error placing order:", error);
+    }
   };
 
   return (
