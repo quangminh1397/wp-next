@@ -12,8 +12,8 @@ export default function ProductSingle({ params }) {
     error,
     isLoading,
   } = useSWR(`/api/products/${params.slug}`, fetcher);
-  if (error) return <div>Failed to load</div>;
-  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div className="inner">Failed to load</div>;
+  if (isLoading) return <div className="inner">Loading...</div>;
 
   return (
     <>
