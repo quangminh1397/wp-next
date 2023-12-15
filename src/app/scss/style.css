@@ -314,4 +314,27 @@ footer .f_txt {
 .checkout .input_cus input {
   height: 50px;
   width: 100%;
+}
+.checkout-product .product {
+  display: flex;
+}
+.checkout-product .product-image {
+  width: 140px;
+  flex-shrink: 0;
+  margin-right: 30px;
+}
+.checkout-product .product-detail {
+  width: 100%;
+}
+.checkout-product .product-detail h3 {
+  font-size: 20px;
+}
+.checkout-product .product-detail .sec {
+  font-size: 18px;
+  font-weight: 700;
+}
+.checkout .total {
+  font-size: 25px;
+  font-weight: 700;
+  margin-top: 30px;
 }/*# sourceMappingURL=style.css.map */

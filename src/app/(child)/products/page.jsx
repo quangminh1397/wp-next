@@ -5,7 +5,7 @@ import useSWR from "swr";
 
 export default function Product() {
   const { data, error, isLoading } = useSWR(`/api/products`, fetcher);
-  if (error) return <div><p className="c-txt01">Failed to load</p></div>;
+  if (error) return <div className="inner"><p className="c-txt01">Failed to load</p></div>;
   if (isLoading) return <div className="inner"><p className="c-txt01">Loading...</p></div>;
   if (!data) return null;
 
