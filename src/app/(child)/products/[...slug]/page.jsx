@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import ProductDetails from "@/app/components/products/ProductDetails";
-import ProductsRelated from "@/app/components/products/ProductsRelated";
 import { fetcher } from "@/app/libs";
 import useSWR from 'swr';
 

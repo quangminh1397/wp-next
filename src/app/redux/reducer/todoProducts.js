@@ -4,14 +4,15 @@ import {
   DECREASE_QUANTITY,
   INCREASE_QUANTITY,
   DELETE_CART,
+  RESET_CART ,
 } from "../action/types";
 import Cookies from "js-cookie";
 const initProduct = {
   numberCart: 0,
   Carts: [],
-  cart: Cookies.get("cart")
-    ? JSON.parse(Cookies.get("cart"))
-    : { numberCart: [], Carts: {} },
+  // cart: Cookies.get("cart")
+  //   ? JSON.parse(Cookies.get("cart"))
+  //   : { numberCart: [], Carts: {} },
 };
 
 export const todoProducts = (state = initProduct, action) => {
@@ -71,6 +72,7 @@ export const todoProducts = (state = initProduct, action) => {
       return {
         ...state,
       };
+
     case DELETE_CART:
       let quantity_ = state.Carts[action.payload].quantity;
       return {
@@ -80,6 +82,13 @@ export const todoProducts = (state = initProduct, action) => {
           return item.id != state.Carts[action.payload].id;
         }),
       };
+
+      case RESET_CART:
+        return {
+          numberCart: 0,
+          Carts: [],
+        }
+    
     default:
       return state;
   }

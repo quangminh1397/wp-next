@@ -57,3 +57,34 @@
         font-size: 700;
     }
 }
+
+.page-blog {
+    .list-post {
+        max-width: 900px;
+        margin: 0 auto;
+
+        li {
+            font-size: 20px;
+            border-bottom: 2px solid #ccc;
+            padding: 30px 0;
+
+        }
+    }
+}
+
+.blog-detail {
+    .detail-ttl {
+        font-size: 25px;
+        margin-bottom: 40px;
+    }
+
+    .detail-cont {
+        p {
+            font-size: 18px;
+
+            &:not(:last-child) {
+                margin-bottom: 25px;
+            }
+        }
+    }
+}
